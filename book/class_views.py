@@ -90,3 +90,9 @@ class GetFavorite(ListAPIView):
     def get_queryset(self):
         queryset=FavoriteAuthor.objects.filter(user=self.request.user)
         return queryset
+    
+
+def git (request):
+    book=Book.objects.all()
+    serializer=BookSerializer(book,many=True)
+    return Response(serializer.data)
